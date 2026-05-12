@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summer Camp 2026 – Ages 4–14 | Peel Region</title>
+  <meta name="description" content="Summer Camp 2026 for ages 4–14. Coding, academics, arts, fitness & more. July 6 – August 6, Monday to Thursday. Register now!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1D9E75;
+      --green-dark: #0F6E56;
+      --green-light: #E1F5EE;
+      --purple: #6C63FF;
+      --purple-light: #EEEDFE;
+      --orange: #F5874F;
+      --orange-light: #FAECE7;
+      --yellow: #FFCF56;
+      --sky: #4FC3F7;
+      --pink: #F472B6;
+      --bg: #FFFDF7;
+      --text: #1a1a2e;
+      --muted: #5f6368;
+      --radius: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      background: linear-gradient(160deg, #0d1b2a 0%, #1a3a2a 50%, #0d2233 100%);
+      overflow: hidden;
+    }
+
+    .hero-blobs span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.25;
+      animation: float 8s ease-in-out infinite;
+    }
+    .blob1 { width: 500px; height: 500px; background: var(--green); top: -100px; left: -150px; animation-delay: 0s; }
+    .blob2 { width: 400px; height: 400px; background: var(--purple); bottom: -80px; right: -100px; animation-delay: -3s; }
+    .blob3 { width: 300px; height: 300px; background: var(--orange); top: 40%; left: 60%; animation-delay: -5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #a8f0d6;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: white;
+      margin-bottom: 0.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--yellow);
+    }
+
+    .hero-sub {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .hero-meta span {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-register {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      padding: 16px 44px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(29,158,117,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.6s 0.4s ease both;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-register:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(29,158,117,0.55); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.4);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .hero-scroll svg { width: 20px; height: 20px; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1040px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* ── PROGRAMS ── */
+    .programs { background: white; }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .prog-card {
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s;
+    }
+    .prog-card:hover { transform: translateY(-6px); }
+
+    .prog-card.green { background: var(--green-light); }
+    .prog-card.purple { background: var(--purple-light); }
+    .prog-card.orange { background: var(--orange-light); }
+    .prog-card.yellow { background: #FFFBEB; }
+    .prog-card.sky { background: #E0F7FA; }
+
+    .prog-icon {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .prog-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .prog-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .prog-tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.6);
+    }
+
+    /* ── SCHEDULE ── */
+    .schedule { background: var(--bg); }
+    .week-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    }
+    .week-table th {
+      background: var(--text);
+      color: white;
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 700;
+    }
+    .week-table td {
+      padding: 12px 20px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+    }
+    .week-table tr:last-child td { border-bottom: none; }
+    .week-table tr:nth-child(even) td { background: #fafafa; }
+    .time-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green-dark);
+      background: var(--green-light);
+      padding: 2px 8px;
+      border-radius: 50px;
+      display: inline-block;
+    }
+
+    /* ── HIGHLIGHTS ── */
+    .highlights { background: white; }
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .hi-card {
+      text-align: center;
+      padding: 2rem 1.25rem;
+      border-radius: var(--radius);
+      border: 2px solid #f0f0f0;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .hi-card:hover { border-color: var(--green); transform: translateY(-4px); }
+    .hi-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .hi-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .hi-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── WHY ── */
+    .why {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1a3a2a 100%);
+      color: white;
+    }
+    .why .section-title { color: white; }
+    .why .section-label { color: var(--yellow); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .why-check {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .why-item p { font-size: 0.92rem; line-height: 1.55; color: rgba(255,255,255,0.85); }
+
+    /* ── REGISTER CTA ── */
+    .register-cta {
+      background: var(--green-light);
+      text-align: center;
+      padding: 6rem 1.5rem;
+    }
+    .register-cta .section-title { color: var(--green-dark); }
+    .register-cta .section-desc { margin: 0 auto 2.5rem; color: #2d6a55; }
+    .register-cta .btn-register {
+      font-size: 1.2rem;
+      padding: 18px 52px;
+    }
+    .spots-note {
+      margin-top: 1.25rem;
+      font-size: 0.875rem;
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+    footer strong { color: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero-meta { gap: 8px; }
+      .hero-meta span { font-size: 12px; padding: 7px 14px; }
+      .week-table th, .week-table td { padding: 10px 12px; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-blobs" aria-hidden="true">
+      <span class="blob1"></span>
+      <span class="blob2"></span>
+      <span class="blob3"></span>
+    </div>
+
+    <div class="hero-badge">Peel Region · Ages 4–14</div>
+
+    <h1>Summer Camp<br><em>2026</em></h1>
+
+    <p class="hero-sub">
+      Learn to code, stay sharp in school, make art, move your body — and actually have the best summer ever.
+    </p>
+
+    <div class="hero-meta">
+      <span>📅 July 6 – August 6</span>
+      <span>📍 Monday to Thursday</span>
+      <span>🎓 Ages 4 to 14</span>
+      <span>⚡ Limited Spots</span>
+    </div>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGahRNwaiL1T_sr3i2yaYyEYe9LYUeUoEl9cpN3kVf5Xab9A/viewform?usp=header" target="_blank" class="btn-register">Register Now — It's Free to Apply</a>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </header>
+
+  <!-- PROGRAMS -->
+  <section class="programs">
+    <div class="container">
+      <div class="section-label">What we offer</div>
+      <h2 class="section-title">5 programs, 1 amazing summer</h2>
+      <p class="section-desc">Every day is packed with a balanced mix of learning, creativity, and movement — never a dull moment.</p>
+
+      <div class="programs-grid">
+        <div class="prog-card green">
+          <span class="prog-icon">💻</span>
+          <h3>Coding &amp; Tech</h3>
+          <p>Learn coding basics, create animations and games, and finish the summer with your very own app or website to show off.</p>
+          <span class="prog-tag">🏆 Final showcase project</span>
+        </div>
+        <div class="prog-card purple">
+          <span class="prog-icon">📚</span>
+          <h3>Academic Enrichment</h3>
+          <p>Daily Math, English, and Science sessions. Worksheets and quick quizzes keep kids sharp and ready for the next grade.</p>
+          <span class="prog-tag">No summer slide</span>
+        </div>
+        <div class="prog-card orange">
+          <span class="prog-icon">🎨</span>
+          <h3>Creative Arts</h3>
+          <p>Painting, drawing, craft projects, and fun competitions. Kids express themselves and discover new creative skills.</p>
+          <span class="prog-tag">Competitions &amp; awards</span>
+        </div>
+        <div class="prog-card sky">
+          <span class="prog-icon">💃</span>
+          <h3>Fitness &amp; Movement</h3>
+          <p>Yoga, aerobics, and dance sessions keep energy levels high and build healthy habits in a fun, non-competitive way.</p>
+          <span class="prog-tag">Yoga · Aerobics · Dance</span>
+        </div>
+        <div class="prog-card yellow">
+          <span class="prog-icon">🍎</span>
+          <h3>Healthy Cooking</h3>
+          <p>Simple, fun recipes that teach kids about healthy eating. They cook it, they eat it — and they love it.</p>
+          <span class="prog-tag">Hands-on kitchen fun</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="schedule">
+    <div class="container">
+      <div class="section-label">Sample day</div>
+      <h2 class="section-title">What a typical week looks like</h2>
+      <p class="section-desc">Every week runs Monday to Thursday. Pick any week — or all of them!</p>
+
+      <table class="week-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Activities</th>
+            <th>Highlight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Monday</strong></td>
+            <td>Coding · Math · Yoga · Art</td>
+            <td><span class="time-badge">Week kickoff</span></td>
+          </tr>
+          <tr>
+            <td><strong>Tuesday</strong></td>
+            <td>Coding · English · Aerobics · Cooking class</td>
+            <td><span class="time-badge">Kitchen day</span></td>
+          </tr>
+          <tr>
+            <td><strong>Wednesday</strong></td>
+            <td>Coding · Science + experiments · Dance · Crafts</td>
+            <td><span class="time-badge">⚽ Sports Day at Creditview Park</span></td>
+          </tr>
+          <tr>
+            <td><strong>Thursday</strong></td>
+            <td>Coding project work · Creative competition · Free play</td>
+            <td><span class="time-badge">🍕 Pizza Day!</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SPECIAL HIGHLIGHTS -->
+  <section class="highlights">
+    <div class="container">
+      <div class="section-label">Special events</div>
+      <h2 class="section-title">The moments kids talk about all year</h2>
+      <p class="section-desc">Beyond the daily program, we've packed in special events that make this summer truly unforgettable.</p>
+
+      <div class="highlights-grid">
+        <div class="hi-card">
+          <div class="hi-emoji">🍕</div>
+          <h3>Pizza Thursday</h3>
+          <p>Every single Thursday — because everyone deserves a delicious reward after a week of hard work.</p>
+        </div>
+        <div class="hi-card">
+          <div class="hi-emoji">🎮</div>
+          <h3>Playdium Fun Day</h3>
+          <p>A full day of exciting games and entertainment. Kids look forward to this one all summer.</p>
+        </div>
+        <div class="hi-card">
+          <div class="hi-emoji">⚽</div>
+          <h3>Sports Day</h3>
+          <p>Outdoor races, team games, and big energy at Creditview Park. Sunshine and teamwork guaranteed.</p>
+        </div>
+        <div class="hi-card">
+          <div class="hi-emoji">🏆</div>
+          <h3>Final Showcase Day</h3>
+          <p>Parents are invited! Kids present their apps and artwork, receive certificates, and celebrate their growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="why">
+    <div class="container">
+      <div class="section-label">Why parents choose us</div>
+      <h2 class="section-title">Built for kids who want to get ahead</h2>
+      <br />
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <p>Kids leave with a real app or website they built themselves — not just a certificate</p>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <p>Daily academics prevent summer learning loss and prepare kids for the next grade</p>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <p>Balanced days — learning never feels like school because it's mixed with art and movement</p>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <p>Flexible weekly enrollment — sign up for one week or all five, whatever works for your family</p>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <p>Builds confidence, focus, and communication skills in a safe and encouraging environment</p>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <p>Perfect prep for advanced and enriched programs — strong math and reading foundations from day one</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER CTA -->
+  <section class="register-cta" id="register">
+    <div class="container">
+      <div class="section-label">Ready to join?</div>
+      <h2 class="section-title">Secure your child's spot today</h2>
+      <p class="section-desc">
+        Spots fill up fast. Fill out our quick registration form and we'll be in touch with all the details.
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGahRNwaiL1T_sr3i2yaYyEYe9LYUeUoEl9cpN3kVf5Xab9A/viewform?usp=header" target="_blank" class="btn-register">
+        Register Now →
+      </a>
+      <p class="spots-note">⚡ Limited spots available · July 6 – August 6, 2026</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Summer Camp 2026</strong> · Peel Region · Ages 4–14 · Mon–Thu · July 6 – August 6</p>
+    <p style="margin-top:6px">Questions? Reach out to us and we'll be happy to help.</p>
+  </footer>
+
+</body>
+</html>
