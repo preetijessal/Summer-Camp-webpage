@@ -4,372 +4,211 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Summer Camp 2026 – Ages 4–14 | Brampton</title>
-  <meta name="description" content="Summer Camp 2026 for ages 4–14. Coding, academics, arts, fitness & more. July 6 – August 6, Monday to Thursday. Register now!" />
+  <meta name="description" content="Summer Camp 2026 for ages 4–14 in Brampton. Coding, academics, arts, fitness & more. July 6 – August 6, Monday to Thursday. Register now!" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --green: #1D9E75;
-      --green-dark: #0F6E56;
-      --green-light: #E1F5EE;
-      --purple: #6C63FF;
-      --purple-light: #EEEDFE;
-      --orange: #F5874F;
-      --orange-light: #FAECE7;
-      --yellow: #FFCF56;
-      --sky: #4FC3F7;
-      --pink: #F472B6;
-      --bg: #FFFDF7;
-      --text: #1a1a2e;
-      --muted: #5f6368;
-      --radius: 20px;
+      --sky1: #56CCF2; --sky2: #2F80ED; --sun: #FFD93D;
+      --grass: #6BCB77; --coral: #FF6B6B; --purple: #A855F7;
+      --orange: #FF9F43; --pink: #FF6EB4; --mint: #4ECDC4;
+      --yellow: #FFD93D; --white: #ffffff; --text: #1a1a2e;
+      --muted: #5a6a7a; --radius: 24px; --radius-lg: 36px;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; color: var(--text); overflow-x: hidden; background: #f0faff; }
 
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* ── HERO ── */
+    /* HERO */
     .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 6rem 1.5rem 4rem;
-      background: linear-gradient(160deg, #0d1b2a 0%, #1a3a2a 50%, #0d2233 100%);
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 5rem 1.5rem 9rem;
+      background: linear-gradient(180deg, #1565C0 0%, #42A5F5 40%, #80D8FF 75%, #c8f0ff 100%);
       overflow: hidden;
     }
-
-    .hero-blobs span {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.25;
-      animation: float 8s ease-in-out infinite;
+    .sun {
+      position: absolute; top: -40px; right: 10%;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle, #FFE566 40%, #FFD93D 65%, rgba(255,217,61,0) 100%);
+      border-radius: 50%; z-index: 0;
+      animation: sunPulse 4s ease-in-out infinite;
     }
-    .blob1 { width: 500px; height: 500px; background: var(--green); top: -100px; left: -150px; animation-delay: 0s; }
-    .blob2 { width: 400px; height: 400px; background: var(--purple); bottom: -80px; right: -100px; animation-delay: -3s; }
-    .blob3 { width: 300px; height: 300px; background: var(--orange); top: 40%; left: 60%; animation-delay: -5s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-30px) scale(1.05); }
+    @keyframes sunPulse {
+      0%,100% { box-shadow: 0 0 40px 20px rgba(255,217,61,0.35); }
+      50%      { box-shadow: 0 0 80px 40px rgba(255,217,61,0.55); }
     }
+    /* Clouds */
+    .cloud { position: absolute; background: white; border-radius: 50px; opacity: 0.9; }
+    .cloud::before, .cloud::after { content:''; position:absolute; background:white; border-radius:50%; }
+    .c1 { width:130px;height:42px; top:12%; left:-150px; animation: cf 22s linear infinite; }
+    .c1::before { width:64px;height:64px; top:-30px; left:18px; }
+    .c1::after  { width:48px;height:48px; top:-20px; left:58px; }
+    .c2 { width:190px;height:55px; top:24%; left:-210px; animation: cf 30s linear infinite; animation-delay:-10s; }
+    .c2::before { width:85px;height:85px; top:-40px; left:28px; }
+    .c2::after  { width:62px;height:62px; top:-26px; left:88px; }
+    .c3 { width:105px;height:36px; top:7%;  left:-130px; animation: cf 18s linear infinite; animation-delay:-5s; }
+    .c3::before { width:52px;height:52px; top:-24px; left:14px; }
+    .c3::after  { width:40px;height:40px; top:-16px; left:48px; }
+    .c4 { width:150px;height:48px; top:33%; left:-170px; animation: cf 26s linear infinite; animation-delay:-15s; }
+    .c4::before { width:70px;height:70px; top:-33px; left:22px; }
+    .c4::after  { width:52px;height:52px; top:-21px; left:68px; }
+    .c5 { width:120px;height:40px; top:18%; left:-140px; animation: cf 20s linear infinite; animation-delay:-8s; }
+    .c5::before { width:58px;height:58px; top:-26px; left:16px; }
+    .c5::after  { width:44px;height:44px; top:-18px; left:54px; }
+    @keyframes cf { 0% { left:-210px; } 100% { left:110%; } }
 
+    .grass-wave { position:absolute; bottom:0; left:0; width:100%; z-index:1; }
+
+    .hero-content { position:relative; z-index:2; }
     .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #a8f0d6;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 6px 18px;
-      border-radius: 50px;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
+      display:inline-block; background:white; color:var(--sky2);
+      font-size:13px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+      padding:7px 22px; border-radius:50px; margin-bottom:1.5rem;
+      box-shadow:0 4px 18px rgba(0,0,0,0.13); animation:fadeUp 0.6s ease both;
     }
-
     .hero h1 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 700;
-      line-height: 1.05;
-      color: white;
-      margin-bottom: 0.5rem;
-      animation: fadeUp 0.6s 0.1s ease both;
+      font-family:'Baloo 2',cursive; font-size:clamp(3rem,9vw,6.5rem); font-weight:800;
+      line-height:1.0; color:white; text-shadow:0 4px 20px rgba(0,0,0,0.2);
+      margin-bottom:0.4rem; animation:fadeUp 0.6s 0.1s ease both;
     }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--yellow);
-    }
-
+    .hero h1 .hl { color:var(--sun); }
     .hero-sub {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      color: rgba(255,255,255,0.7);
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.6;
-      animation: fadeUp 0.6s 0.2s ease both;
+      font-size:clamp(1rem,2.5vw,1.25rem); color:rgba(255,255,255,0.95);
+      max-width:520px; margin:0.5rem auto 2rem; line-height:1.6; font-weight:600;
+      animation:fadeUp 0.6s 0.2s ease both;
     }
-
     .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.6s 0.3s ease both;
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+      margin-bottom:2.5rem; animation:fadeUp 0.6s 0.3s ease both;
     }
-
     .hero-meta span {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      background:rgba(255,255,255,0.22); backdrop-filter:blur(8px);
+      border:2px solid rgba(255,255,255,0.5); color:white;
+      font-size:14px; font-weight:700; padding:8px 18px; border-radius:50px;
     }
-
     .btn-register {
-      display: inline-block;
-      background: var(--green);
-      color: white;
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
-      padding: 16px 44px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 8px 32px rgba(29,158,117,0.45);
-      transition: transform 0.2s, box-shadow 0.2s;
-      animation: fadeUp 0.6s 0.4s ease both;
-      border: none;
-      cursor: pointer;
+      display:inline-block;
+      background:linear-gradient(135deg,#FF6B6B,#FF9F43);
+      color:white; font-family:'Baloo 2',cursive; font-size:1.2rem; font-weight:700;
+      padding:16px 48px; border-radius:50px; text-decoration:none;
+      box-shadow:0 8px 30px rgba(255,107,107,0.5);
+      transition:transform 0.2s,box-shadow 0.2s;
+      animation:fadeUp 0.6s 0.4s ease both; border:none; cursor:pointer;
     }
-    .btn-register:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(29,158,117,0.55); }
-
+    .btn-register:hover { transform:translateY(-4px) scale(1.03); box-shadow:0 14px 40px rgba(255,107,107,0.6); }
     .hero-scroll {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,0.4);
-      font-size: 13px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      animation: bounce 2s ease-in-out infinite;
+      position:absolute; bottom:6.5rem; left:50%; transform:translateX(-50%);
+      color:rgba(255,255,255,0.7); font-size:13px; font-weight:700;
+      display:flex; flex-direction:column; align-items:center; gap:6px;
+      z-index:2; animation:bounce 2s ease-in-out infinite;
     }
-    .hero-scroll svg { width: 20px; height: 20px; }
+    .hero-scroll svg { width:22px; height:22px; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(8px);} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
-    }
+    /* SECTIONS */
+    section { padding:5rem 1.5rem; }
+    .container { max-width:1040px; margin:0 auto; }
+    .section-label { font-size:12px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--coral); margin-bottom:0.4rem; }
+    .section-title { font-family:'Baloo 2',cursive; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:800; line-height:1.15; margin-bottom:0.75rem; }
+    .section-desc { font-size:1rem; color:var(--muted); max-width:580px; line-height:1.7; margin-bottom:3rem; font-weight:600; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* PROGRAMS */
+    .programs { background:linear-gradient(180deg,#e8f8ff 0%,#f0fff8 100%); }
+    .programs-row { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+    .prog-pill {
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+      border-radius:var(--radius-lg); padding:1.75rem 1.25rem 1.5rem;
+      flex:1 1 160px; max-width:195px; border:3px solid transparent;
+      transition:transform 0.25s,box-shadow 0.25s; cursor:default;
     }
+    .prog-pill:hover { transform:translateY(-8px) rotate(-1deg); box-shadow:0 16px 40px rgba(0,0,0,0.12); }
+    .prog-pill.cg { background:#E8FFF2; border-color:#6BCB77; }
+    .prog-pill.cp { background:#F5EEFF; border-color:#A855F7; }
+    .prog-pill.co { background:#FFF4E6; border-color:#FF9F43; }
+    .prog-pill.cs { background:#E6F8FF; border-color:#56CCF2; }
+    .prog-pill.ck { background:#FFF0F7; border-color:#FF6EB4; }
+    .prog-icon { font-size:2.4rem; margin-bottom:0.6rem; display:block; animation:wiggle 3s ease-in-out infinite; }
+    .prog-pill:nth-child(2) .prog-icon{animation-delay:-0.6s;}
+    .prog-pill:nth-child(3) .prog-icon{animation-delay:-1.2s;}
+    .prog-pill:nth-child(4) .prog-icon{animation-delay:-1.8s;}
+    .prog-pill:nth-child(5) .prog-icon{animation-delay:-2.4s;}
+    @keyframes wiggle { 0%,100%{transform:rotate(0);} 25%{transform:rotate(-8deg);} 75%{transform:rotate(8deg);} }
+    .prog-pill strong { font-size:0.95rem; font-weight:800; display:block; margin-bottom:4px; }
+    .prog-sub { font-size:0.78rem; color:var(--muted); font-weight:700; }
 
-    /* ── SECTION BASE ── */
-    section { padding: 5rem 1.5rem; }
-    .container { max-width: 1040px; margin: 0 auto; }
-    .section-label {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 0.5rem;
-    }
-    .section-title {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .section-desc {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 3rem;
-    }
+    /* SCHEDULE */
+    .schedule { background:white; }
+    .week-table { width:100%; border-collapse:separate; border-spacing:0 10px; font-size:0.95rem; }
+    .week-table th { background:var(--sky2); color:white; padding:14px 20px; text-align:left; font-weight:800; font-size:13px; text-transform:uppercase; letter-spacing:0.05em; }
+    .week-table th:first-child{border-radius:14px 0 0 14px;} .week-table th:last-child{border-radius:0 14px 14px 0;}
+    .week-table td { padding:14px 20px; background:#f8fbff; font-weight:600; border-top:2px solid #e8f4ff; border-bottom:2px solid #e8f4ff; }
+    .week-table td:first-child{border-left:2px solid #e8f4ff;border-radius:14px 0 0 14px;}
+    .week-table td:last-child{border-right:2px solid #e8f4ff;border-radius:0 14px 14px 0;}
+    .time-badge { font-size:11px; font-weight:800; color:white; background:linear-gradient(135deg,#6BCB77,#4ECDC4); padding:4px 10px; border-radius:50px; display:inline-block; }
 
-    /* ── PROGRAMS ── */
-    .programs { background: white; }
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .prog-card {
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s;
-    }
-    .prog-card:hover { transform: translateY(-6px); }
-
-    .prog-card.green { background: var(--green-light); }
-    .prog-card.purple { background: var(--purple-light); }
-    .prog-card.orange { background: var(--orange-light); }
-    .prog-card.yellow { background: #FFFBEB; }
-    .prog-card.sky { background: #E0F7FA; }
-
-    .prog-icon {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .prog-card h3 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-    .prog-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .prog-tag {
-      display: inline-block;
-      margin-top: 0.75rem;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 50px;
-      background: rgba(255,255,255,0.6);
-    }
-
-    /* ── SCHEDULE ── */
-    .schedule { background: var(--bg); }
-    .week-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-      background: white;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
-    }
-    .week-table th {
-      background: var(--text);
-      color: white;
-      padding: 14px 20px;
-      text-align: left;
-      font-weight: 700;
-    }
-    .week-table td {
-      padding: 12px 20px;
-      border-bottom: 1px solid #f0f0f0;
-      vertical-align: top;
-    }
-    .week-table tr:last-child td { border-bottom: none; }
-    .week-table tr:nth-child(even) td { background: #fafafa; }
-    .time-badge {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--green-dark);
-      background: var(--green-light);
-      padding: 2px 8px;
-      border-radius: 50px;
-      display: inline-block;
-    }
-
-    /* ── HIGHLIGHTS ── */
-    .highlights { background: white; }
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-    }
+    /* HIGHLIGHTS */
+    .highlights { background:linear-gradient(180deg,#FFF8E7 0%,#FFF0F7 100%); }
+    .highlights-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.25rem; }
     .hi-card {
-      text-align: center;
-      padding: 2rem 1.25rem;
-      border-radius: var(--radius);
-      border: 2px solid #f0f0f0;
-      transition: border-color 0.2s, transform 0.2s;
+      text-align:center; padding:2rem 1.25rem; border-radius:var(--radius-lg);
+      background:white; border:3px solid #FFE0A3;
+      transition:transform 0.25s,box-shadow 0.25s;
     }
-    .hi-card:hover { border-color: var(--green); transform: translateY(-4px); }
-    .hi-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; }
-    .hi-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.4rem; }
-    .hi-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .hi-card:nth-child(2){border-color:#C4EEFF;}
+    .hi-card:nth-child(3){border-color:#C8F5C8;}
+    .hi-card:nth-child(4){border-color:#E8CCFF;}
+    .hi-card:hover{transform:translateY(-6px) rotate(1deg);box-shadow:0 12px 32px rgba(0,0,0,0.1);}
+    .hi-emoji{font-size:2.8rem;margin-bottom:0.75rem;display:block;}
+    .hi-card h3{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:800;margin-bottom:0.4rem;}
+    .hi-card p{font-size:0.85rem;color:var(--muted);line-height:1.55;font-weight:600;}
 
-    /* ── WHY ── */
-    .why {
-      background: linear-gradient(135deg, #0d1b2a 0%, #1a3a2a 100%);
-      color: white;
+    /* GALLERY */
+    .gallery { background:linear-gradient(180deg,#E8F8FF 0%,#F0FFF8 100%); }
+    .gallery-grid { display:grid; grid-template-columns:2fr 1fr; grid-template-rows:auto auto; gap:1rem; }
+    .gallery-item {
+      position:relative; border-radius:var(--radius-lg); overflow:hidden;
+      background:#d0eaf7; border:4px solid white; box-shadow:0 8px 24px rgba(0,0,0,0.1);
     }
-    .why .section-title { color: white; }
-    .why .section-label { color: var(--yellow); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
-    }
-    .why-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      padding: 1.25rem;
-    }
-    .why-check {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      background: var(--green);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      margin-top: 2px;
-    }
-    .why-item p { font-size: 0.92rem; line-height: 1.55; color: rgba(255,255,255,0.85); }
+    .gallery-large{grid-row:1/3;}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;min-height:220px;transition:transform 0.4s;}
+    .gallery-large img{min-height:460px;}
+    .gallery-item:hover img{transform:scale(1.05);}
+    .gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.65));color:white;font-size:13px;font-weight:800;padding:2rem 1rem 0.85rem;}
 
-    /* ── REGISTER CTA ── */
-    .register-cta {
-      background: var(--green-light);
-      text-align: center;
-      padding: 6rem 1.5rem;
-    }
-    .register-cta .section-title { color: var(--green-dark); }
-    .register-cta .section-desc { margin: 0 auto 2.5rem; color: #2d6a55; }
-    .register-cta .btn-register {
-      font-size: 1.2rem;
-      padding: 18px 52px;
-    }
-    .spots-note {
-      margin-top: 1.25rem;
-      font-size: 0.875rem;
-      color: var(--green-dark);
-      font-weight: 600;
-    }
+    /* WHY */
+    .why { position:relative; background:linear-gradient(160deg,#1565C0 0%,#42A5F5 100%); overflow:hidden; }
+    .why .section-label{color:var(--sun);}
+    .why .section-title{color:white;}
+    .star-deco{position:absolute;font-size:6rem;bottom:10px;right:30px;opacity:0.12;animation:spin 10s linear infinite;}
+    @keyframes spin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
+    .why-item{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,0.3);border-radius:var(--radius);padding:1.25rem;transition:transform 0.2s;}
+    .why-item:hover{transform:translateY(-4px);}
+    .why-check{flex-shrink:0;width:30px;height:30px;background:var(--sun);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#7a5000;margin-top:2px;}
+    .why-item p{font-size:0.92rem;line-height:1.55;color:rgba(255,255,255,0.95);font-weight:700;}
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--text);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.85rem;
-    }
-    footer strong { color: white; }
+    /* CTA */
+    .register-cta{background:linear-gradient(135deg,#FFF8E7 0%,#FFE8F0 100%);text-align:center;padding:6rem 1.5rem;position:relative;overflow:hidden;}
+    .register-cta .section-label{color:var(--coral);}
+    .register-cta .section-desc{margin:0 auto 2.5rem;}
+    .spots-note{margin-top:1.25rem;font-size:0.9rem;color:var(--coral);font-weight:800;}
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .hero-meta { gap: 8px; }
-      .hero-meta span { font-size: 12px; padding: 7px 14px; }
-      .week-table th, .week-table td { padding: 10px 12px; font-size: 0.85rem; }
+    /* FOOTER */
+    footer{background:#1a3a5c;color:rgba(255,255,255,0.6);text-align:center;padding:2.5rem 1.5rem;font-size:0.9rem;font-weight:600;}
+    footer strong{color:white;font-family:'Baloo 2',cursive;font-size:1rem;}
+
+    /* RESPONSIVE */
+    @media(max-width:600px){
+      .hero-meta span{font-size:12px;padding:6px 14px;}
+      .gallery-grid{grid-template-columns:1fr;}
+      .gallery-large{grid-row:auto;}
+      .gallery-large img{min-height:260px;}
+      .gallery-item img{min-height:200px;}
+      .week-table{font-size:0.8rem;}
+      .week-table th,.week-table td{padding:10px 10px;}
     }
   </style>
 </head>
@@ -377,74 +216,51 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-blobs" aria-hidden="true">
-      <span class="blob1"></span>
-      <span class="blob2"></span>
-      <span class="blob3"></span>
+    <div class="sun" aria-hidden="true"></div>
+    <div class="cloud c1" aria-hidden="true"></div>
+    <div class="cloud c2" aria-hidden="true"></div>
+    <div class="cloud c3" aria-hidden="true"></div>
+    <div class="cloud c4" aria-hidden="true"></div>
+    <div class="cloud c5" aria-hidden="true"></div>
+
+    <svg class="grass-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,60 C180,120 360,0 540,60 C720,120 900,0 1080,60 C1260,120 1380,40 1440,60 L1440,120 L0,120 Z" fill="#6BCB77"/>
+      <path d="M0,80 C200,40 400,100 600,70 C800,40 1000,90 1200,65 C1320,50 1400,80 1440,75 L1440,120 L0,120 Z" fill="#4CAF60" opacity="0.6"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-badge">☀️ Brampton · Ages 4–14</div>
+      <h1>Summer Camp<br><span class="hl">2026!</span></h1>
+      <p class="hero-sub">Give your child a summer full of learning,<br>creativity, confidence, and fun! 🌟</p>
+      <div class="hero-meta">
+        <span>📅 July 6 – August 6</span>
+        <span>📍 Mon to Thu</span>
+        <span>🎓 Ages 4–14</span>
+        <span>⚡ Limited Spots!</span>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGahRNwaiL1T_sr3i2yaYyEYe9LYUeUoEl9cpN3kVf5Xab9A/viewform?usp=header" target="_blank" class="btn-register">
+        🎉 Register Now — Free to Apply!
+      </a>
     </div>
-
-    <div class="hero-badge">Peel Region · Ages 4–14</div>
-
-    <h1>Summer Camp<br><em>2026</em></h1>
-
-    <p class="hero-sub">
-      Give your child a summer full of learning, creativity, confidence, and fun!
-At our Summer Camp, kids will explore coding, strengthen their Math and English skills, create exciting art projects, stay active with games and movement activities, and make new friends in a positive and supportive environment.
-    </p>
-
-    <div class="hero-meta">
-      <span>📅 July 6 – August 6</span>
-      <span>📍 Monday to Thursday</span>
-      <span>🎓 Ages 4 to 14</span>
-      <span>⚡ Limited Spots</span>
-    </div>
-
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGahRNwaiL1T_sr3i2yaYyEYe9LYUeUoEl9cpN3kVf5Xab9A/viewform?usp=header" target="_blank" class="btn-register">Register Now — It's Free to Apply</a>
 
     <div class="hero-scroll" aria-hidden="true">
-      <span>Scroll to explore</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      <span>Explore below</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </div>
   </header>
 
   <!-- PROGRAMS -->
   <section class="programs">
     <div class="container">
-      <div class="section-label">What we offer</div>
-      <h2 class="section-title">5 programs, 1 amazing summer</h2>
-      <p class="section-desc">Every day is packed with a balanced mix of learning, creativity, and movement — never a dull moment.</p>
-
-      <div class="programs-grid">
-        <div class="prog-card green">
-          <span class="prog-icon">💻</span>
-          <h3>Coding &amp; Tech</h3>
-          <p>Learn coding basics, create animations and games, and finish the summer with your very own app or website to show off.</p>
-          <span class="prog-tag">🏆 Final showcase project</span>
-        </div>
-        <div class="prog-card purple">
-          <span class="prog-icon">📚</span>
-          <h3>Academic Enrichment</h3>
-          <p>Daily Math, English, and Science sessions. Worksheets and quick quizzes keep kids sharp and ready for the next grade.</p>
-          <span class="prog-tag">No summer slide</span>
-        </div>
-        <div class="prog-card orange">
-          <span class="prog-icon">🎨</span>
-          <h3>Creative Arts</h3>
-          <p>Painting, drawing, craft projects, and fun competitions. Kids express themselves and discover new creative skills.</p>
-          <span class="prog-tag">Competitions &amp; awards</span>
-        </div>
-        <div class="prog-card sky">
-          <span class="prog-icon">💃</span>
-          <h3>Fitness &amp; Movement</h3>
-          <p>Yoga, aerobics, and dance sessions keep energy levels high and build healthy habits in a fun, non-competitive way.</p>
-          <span class="prog-tag">Yoga · Aerobics · Dance</span>
-        </div>
-        <div class="prog-card yellow">
-          <span class="prog-icon">🍎</span>
-          <h3>Healthy Cooking</h3>
-          <p>Simple, fun recipes that teach kids about healthy eating. They cook it, they eat it — and they love it.</p>
-          <span class="prog-tag">Hands-on kitchen fun</span>
-        </div>
+      <div class="section-label">✨ What we offer</div>
+      <h2 class="section-title">Everything your child needs.<br>All in one summer! 🏕️</h2>
+      <p class="section-desc">Kids explore coding, strengthen Math and English, create art, stay active, and make new friends — in a positive and supportive environment.</p>
+      <div class="programs-row">
+        <div class="prog-pill cg"><span class="prog-icon">💻</span><strong>Coding & Tech</strong><span class="prog-sub">Build a real app!</span></div>
+        <div class="prog-pill cp"><span class="prog-icon">📚</span><strong>Math & English</strong><span class="prog-sub">Stay ahead in school</span></div>
+        <div class="prog-pill co"><span class="prog-icon">🎨</span><strong>Creative Arts</strong><span class="prog-sub">Paint, craft & compete</span></div>
+        <div class="prog-pill cs"><span class="prog-icon">💃</span><strong>Fitness & Dance</strong><span class="prog-sub">Yoga · Aerobics · Dance</span></div>
+        <div class="prog-pill ck"><span class="prog-icon">🍎</span><strong>Healthy Cooking</strong><span class="prog-sub">Cook, eat & learn</span></div>
       </div>
     </div>
   </section>
@@ -452,121 +268,87 @@ At our Summer Camp, kids will explore coding, strengthen their Math and English 
   <!-- SCHEDULE -->
   <section class="schedule">
     <div class="container">
-      <div class="section-label">Sample day</div>
-      <h2 class="section-title">What a typical week looks like</h2>
-      <p class="section-desc">Every week runs Monday to Thursday. Pick any week — or all of them!</p>
-
+      <div class="section-label">📅 Weekly schedule</div>
+      <h2 class="section-title">Every week is a new adventure!</h2>
+      <p class="section-desc">Pick any week — or all five! Monday to Thursday, packed with fun every single day.</p>
       <table class="week-table">
         <thead>
-          <tr>
-            <th>Day</th>
-            <th>Activities</th>
-            <th>Highlight</th>
-          </tr>
+          <tr><th>Day</th><th>Activities</th><th>Special Highlight</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>Monday</strong></td>
-            <td>Coding · Math · Yoga · Art</td>
-            <td><span class="time-badge">Week kickoff</span></td>
-          </tr>
-          <tr>
-            <td><strong>Tuesday</strong></td>
-            <td>Coding · English · Aerobics · Cooking class</td>
-            <td><span class="time-badge">Kitchen day</span></td>
-          </tr>
-          <tr>
-            <td><strong>Wednesday</strong></td>
-            <td>Coding · Science + experiments · Dance · Crafts</td>
-            <td><span class="time-badge">⚽ Sports Day at Creditview Park</span></td>
-          </tr>
-          <tr>
-            <td><strong>Thursday</strong></td>
-            <td>Coding project work · Creative competition · Free play</td>
-            <td><span class="time-badge">🍕 Pizza Day!</span></td>
-          </tr>
+          <tr><td><strong>Monday 🌅</strong></td><td>Coding · Math · Yoga · Art</td><td><span class="time-badge">🚀 Week Kickoff!</span></td></tr>
+          <tr><td><strong>Tuesday 🌤️</strong></td><td>Coding · English · Aerobics · Cooking</td><td><span class="time-badge">👨‍🍳 Kitchen Day</span></td></tr>
+          <tr><td><strong>Wednesday ☀️</strong></td><td>Coding · Science · Dance · Crafts</td><td><span class="time-badge">⚽ Sports at Creditview Park</span></td></tr>
+          <tr><td><strong>Thursday 🎉</strong></td><td>Coding Projects · Competitions · Free Play</td><td><span class="time-badge">🍕 Pizza Day!</span></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- SPECIAL HIGHLIGHTS -->
+  <!-- HIGHLIGHTS -->
   <section class="highlights">
     <div class="container">
-      <div class="section-label">Special events</div>
-      <h2 class="section-title">The moments kids talk about all year</h2>
-      <p class="section-desc">Beyond the daily program, we've packed in special events that make this summer truly unforgettable.</p>
-
+      <div class="section-label">🎉 Special events</div>
+      <h2 class="section-title">Moments kids talk about all year! 🗣️</h2>
+      <p class="section-desc">We've packed in special events that make this summer truly unforgettable.</p>
       <div class="highlights-grid">
-        <div class="hi-card">
-          <div class="hi-emoji">🍕</div>
-          <h3>Pizza Thursday</h3>
-          <p>Every single Thursday — because everyone deserves a delicious reward after a week of hard work.</p>
+        <div class="hi-card"><span class="hi-emoji">🍕</span><h3>Pizza Thursday</h3><p>Every week! A delicious reward after all the hard work.</p></div>
+        <div class="hi-card"><span class="hi-emoji">🎮</span><h3>Playdium Fun Day</h3><p>A full day of exciting games and entertainment kids love!</p></div>
+        <div class="hi-card"><span class="hi-emoji">⚽</span><h3>Sports Day</h3><p>Races, team games, and big energy at Creditview Park!</p></div>
+        <div class="hi-card"><span class="hi-emoji">🏆</span><h3>Final Showcase</h3><p>Parents invited! Apps, artwork, certificates & celebrations!</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="container">
+      <div class="section-label">📸 Last summer</div>
+      <h2 class="section-title">See the fun for yourself! 😄</h2>
+      <p class="section-desc">Real moments from our summer camp — the smiles say it all.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-large">
+          <img src="images/sports-day-fun.jpg" alt="Kids enjoying Sports Day at Creditview Park" loading="lazy" />
+          <div class="gallery-caption">⚽ Sports Day at Creditview Park</div>
         </div>
-        <div class="hi-card">
-          <div class="hi-emoji">🎮</div>
-          <h3>Playdium Fun Day</h3>
-          <p>A full day of exciting games and entertainment. Kids look forward to this one all summer.</p>
+        <div class="gallery-item">
+          <img src="images/creative-time.jpg" alt="Kids doing creative arts and crafts" loading="lazy" />
+          <div class="gallery-caption">🎨 Creative Time</div>
         </div>
-        <div class="hi-card">
-          <div class="hi-emoji">⚽</div>
-          <h3>Sports Day</h3>
-          <p>Outdoor races, team games, and big energy at Creditview Park. Sunshine and teamwork guaranteed.</p>
-        </div>
-        <div class="hi-card">
-          <div class="hi-emoji">🏆</div>
-          <h3>Final Showcase Day</h3>
-          <p>Parents are invited! Kids present their apps and artwork, receive certificates, and celebrate their growth.</p>
+        <div class="gallery-item">
+          <img src="images/science-experiment.jpg" alt="Kids doing science experiments" loading="lazy" />
+          <div class="gallery-caption">🔬 Science Experiments</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY CHOOSE -->
+  <!-- WHY -->
   <section class="why">
     <div class="container">
-      <div class="section-label">Why parents choose us</div>
-      <h2 class="section-title">Built for kids who want to get ahead</h2>
-      <br />
+      <span class="star-deco" aria-hidden="true">⭐</span>
+      <div class="section-label">💛 Why parents choose us</div>
+      <h2 class="section-title">Built for kids who shine! ⭐</h2>
+      <br/>
       <div class="why-grid">
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <p>Kids leave with a real app or website they built themselves — not just a certificate</p>
-        </div>
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <p>Daily academics prevent summer learning loss and prepare kids for the next grade</p>
-        </div>
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <p>Balanced days — learning never feels like school because it's mixed with art and movement</p>
-        </div>
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <p>Flexible weekly enrollment — sign up for one week or all five, whatever works for your family</p>
-        </div>
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <p>Builds confidence, focus, and communication skills in a safe and encouraging environment</p>
-        </div>
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <p>Perfect prep for advanced and enriched programs — strong math and reading foundations from day one</p>
-        </div>
+        <div class="why-item"><div class="why-check">✓</div><p>Kids leave with a real app or website they built themselves!</p></div>
+        <div class="why-item"><div class="why-check">✓</div><p>Daily academics prevent summer learning loss — ready for next grade!</p></div>
+        <div class="why-item"><div class="why-check">✓</div><p>Learning mixed with art and movement — never feels like school!</p></div>
+        <div class="why-item"><div class="why-check">✓</div><p>Flexible weekly enrollment — one week or all five, your choice!</p></div>
+        <div class="why-item"><div class="why-check">✓</div><p>Builds confidence, focus, and communication in a safe environment!</p></div>
+        <div class="why-item"><div class="why-check">✓</div><p>Perfect prep for advanced programs — strong Math & English foundations!</p></div>
       </div>
     </div>
   </section>
 
-  <!-- REGISTER CTA -->
+  <!-- REGISTER -->
   <section class="register-cta" id="register">
     <div class="container">
-      <div class="section-label">Ready to join?</div>
-      <h2 class="section-title">Secure your child's spot today</h2>
-      <p class="section-desc">
-        Spots fill up fast. Fill out our quick registration form and we'll be in touch with all the details.
-      </p>
+      <div class="section-label">🚀 Ready to join?</div>
+      <h2 class="section-title">Secure your child's spot today! 🎒</h2>
+      <p class="section-desc">Spots fill up fast! Fill out our quick form and we'll be in touch with all the details.</p>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGahRNwaiL1T_sr3i2yaYyEYe9LYUeUoEl9cpN3kVf5Xab9A/viewform?usp=header" target="_blank" class="btn-register">
-        Register Now →
+        🎉 Register Now — It's Free!
       </a>
       <p class="spots-note">⚡ Limited spots available · July 6 – August 6, 2026</p>
     </div>
@@ -574,8 +356,9 @@ At our Summer Camp, kids will explore coding, strengthen their Math and English 
 
   <!-- FOOTER -->
   <footer>
-    <p><strong>Summer Camp 2026</strong> · Peel Region · Ages 4–14 · Mon–Thu · July 6 – August 6</p>
-    <p style="margin-top:6px">Questions? Reach out to us and we'll be happy to help.</p>
+    <p><strong>☀️ Summer Camp 2026</strong></p>
+    <p style="margin-top:6px">Brampton · Ages 4–14 · Mon–Thu · July 6 – August 6</p>
+    <p style="margin-top:6px">Questions? Reach out — we'd love to hear from you! 💛</p>
   </footer>
 
 </body>
